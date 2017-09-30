@@ -35,7 +35,6 @@ if ($_GET["a"] === "0" || $_POST["a"] === "0") {
       fwrite($fp, ++$count);
       flock($fp, LOCK_UN);
       fclose($fp);
-      print $_POST["a"]." okaaaa";
     }
   } catch (Exception $e) {
     exit;
