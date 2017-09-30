@@ -1,7 +1,8 @@
 <?php
 
 
-if ($_GET["a"] === "0") {
+
+if ($_GET["a"] === "0" || $_POST["a"] === "0") {
   $record = array();
   $date = new \DateTime();
   $record['id'] = getRealIpAddr();
@@ -21,7 +22,7 @@ if ($_GET["a"] === "0") {
   } catch (Exception $e) {
     exit;
   }
-} elseif ($_GET["a"] === "1") {
+} elseif ($_GET["a"] === "1" || $_POST["a"] === "1") {
   try {
     $fp = fopen('data/count.txt', 'c+');
     if ( !$fp ) {
@@ -34,6 +35,7 @@ if ($_GET["a"] === "0") {
       fwrite($fp, ++$count);
       flock($fp, LOCK_UN);
       fclose($fp);
+      print $_POST["a"]." okaaaa";
     }
   } catch (Exception $e) {
     exit;
